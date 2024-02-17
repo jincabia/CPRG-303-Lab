@@ -14,30 +14,26 @@
       ScrollView      
     } from 'react-native';
     
-export default function ToDoList()
+export default function ToDoList({items})
 {
+
+
+
+  
 
   return (
     <SafeAreaView>
-      <ScrollView>
-        <Pressable>
-          <View style={[styles.task, styles.completed]}>
-            <Text style={styles.taskText}>Do laundry</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.task]}>
-            <Text style={styles.taskText}>Go to gym</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.task, styles.completed]}>
-            <Text style={styles.taskText}>Walk dog</Text>
-          </View>
-        </Pressable>
-      </ScrollView>
-      
-      
+      {items.map((value,index)=> {
+        return(
+          <Pressable key={index}>
+            <View style={[styles.task]}>
+              <Text style={[styles.taskText]}>
+                {value}
+              </Text>
+            </View>
+          </Pressable>
+        )
+      })}
     </SafeAreaView>
   );
 }
@@ -53,6 +49,7 @@ const styles = StyleSheet.create({
   },
   taskText: {
     fontSize: 16,
+    
   }
 });
 
