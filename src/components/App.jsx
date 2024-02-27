@@ -8,8 +8,8 @@
 
 import React from 'react';
 import { SafeAreaView} from 'react-native';
-import ToDoList from './components/todolist.jsx'
-import ToDoForm from './components/todoform.jsx'
+import ToDoList from './todolist.jsx'
+import ToDoForm from './todoform.jsx'
 
 
 function App() {
@@ -21,10 +21,16 @@ function App() {
     ]
   );
 
+  const handleAddTask = (task) => {
+    setItems([...items,task]);
+  }
+
+
+
   return (
     <>
     <ToDoList items={items}></ToDoList>
-    <ToDoForm></ToDoForm>
+    <ToDoForm addTask ={handleAddTask}></ToDoForm>
       </>
     );
 }
